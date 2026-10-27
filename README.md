@@ -1,16 +1,29 @@
-# React + Vite
+# Ángeles Barrios está Entre Nosotros
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Sitio editorial en React + Vite. **Versión 0.1: prototipo funcional de la portada, todavía no apto para publicar noticias oficiales.**
 
-Currently, two official plugins are available:
+## Ejecutar
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+npm install
+npm run dev -- --host 0.0.0.0
+```
 
-## React Compiler
+## Contenido
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Fase 1: Destacadas, Tamaulipas, Nacional, Zona Sur.
+- Fase 2 prevista: Economía, Opinión, Cultura y Entrevistas.
+- Las noticias se registran una sola vez en `src/data/articles.js`; pueden estar en varias categorías y también en Destacadas.
+- Para publicar, se debe verificar el contenido, las fotografías, los derechos y las fechas. `publishedAt` es la fecha real de publicación, no la fecha del evento (`eventDate`).
+- **No hay CMS ni cuentas de administración en esta versión.** El módulo de datos es temporal; no es un panel editorial.
+- Los espacios de anuncios y los textos legales son marcadores de posición, no publicidad contratada ni documentos legales definitivos.
+- La imagen original del quiosco de Tampico debe proporcionarse e incorporarse como `public/images/portada-tampico.jpg` antes de activar el fondo fotográfico del encabezado.
+- Las rutas internas se gestionan en el navegador. Para publicar se necesita configurar el alojamiento con fallback a `index.html`, además de implementar HTML prerenderizado/SSG y metadatos por noticia para SEO y redes sociales.
 
-## Expanding the Oxlint configuration
+## Estructura
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+- `src/App.jsx`: portada, navegación, listados, lectura, búsqueda y avisos.
+- `src/App.css` y `src/index.css`: diseño adaptable.
+- `src/data/articles.js`: contenido editorial temporal.
+
+No subir contraseñas, claves ni archivos `.env` con secretos al repositorio público.
