@@ -1,0 +1,26 @@
+INSTRUCCIONES PARA IMAGENES — ENTRE NOSOTROS
+==========================================
+1. FOTO DEL ZOCALO / QUIOSCO DE TAMPICO (CABECERA)
+   Ubicacion: public/images/zocalo-tampico.jpg
+   Nombre exacto: zocalo-tampico.jpg
+   Foto real proporcionada por la redaccion, no una imagen generada.
+   Recomendacion: imagen horizontal de 1600 pixeles de ancho o mas.
+   La caja del titulo YA ES TRANSPARENTE. El texto aparece encima de la foto.
+
+2. PATROCINADOR FONOS VELAS ARTESANALES
+   Ubicacion: public/images/patrocinadores/fonos.png
+   Nombre exacto: fonos.png
+   Si tienes JPG o WEBP, conviertelo a PNG o modifica su ruta en src/config/sponsors.js.
+
+3. PATROCINADOR STEM INSTITUTO MEXICO
+   Ubicacion: public/images/patrocinadores/stem.png
+   Nombre exacto: stem.png
+   Si tienes JPG o WEBP, conviertelo a PNG o modifica su ruta en src/config/sponsors.js.
+
+4. FOTOGRAFIAS PARA NOTICIAS
+   Ubicacion: public/images/noticias/
+   Ruta de ejemplo en una noticia: /images/noticias/foto-real.jpg
+
+No hace falta abrir index.html para cambiar imagenes.
+No es necesario crear estas carpetas: YA EXISTEN.
+No se incluyen fotos originales ni logotipos que la redaccion no haya proporcionado.

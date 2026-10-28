@@ -1,0 +1,14 @@
+NOMBRES EXACTOS — FASE 1 v0.5
+
+CABECERA (ZÓCALO DE TAMPICO):
+ public/images/zocalo-tampico.jpg
+
+ANUNCIANTES:
+ public/images/patrocinadores/fonos.png
+ public/images/patrocinadores/stem.png
+
+NOTICIAS (cuando se publique contenido):
+ public/images/noticias/nombre-de-la-foto.jpg
+
+No basta cambiar la extensión en el nombre: exportar la imagen realmente como JPG o PNG según corresponda.
+Para las dos tarjetas «Tu anuncio puede estar aquí» no se necesita ninguna imagen, la animación se hace con CSS.

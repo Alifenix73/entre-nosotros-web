@@ -1,0 +1,17 @@
+{
+  "name": "entre-nosotros-studio",
+  "private": true,
+  "version": "0.8.0",
+  "type": "module",
+  "scripts": {
+    "dev": "sanity dev --host 127.0.0.1 --port 3333",
+    "build": "sanity build",
+    "deploy": "sanity deploy"
+  },
+  "dependencies": {
+    "sanity": "^6.17.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "styled-components": "^6.1.0"
+  }
+}

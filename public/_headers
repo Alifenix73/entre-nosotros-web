@@ -1,0 +1,18 @@
+# Cloudflare Pages. Se aplica a los archivos estáticos. Las Pages Functions
+# deben enviar también estos encabezados desde su Response.
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://cdn.sanity.io; font-src 'self' data:; connect-src 'self' https://*.api.sanity.io https://*.apicdn.sanity.io https://cloudflareinsights.com; upgrade-insecure-requests
+
+/vista-previa/*
+  X-Robots-Tag: noindex, nofollow
+
+# Evita posicionar copias de prueba de Pages cuando exista dominio definitivo.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex, nofollow

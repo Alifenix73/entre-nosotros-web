@@ -1,0 +1,6 @@
+Coloca aquí:
+ fonos.png — logo Fonós Velas Artesanales
+ stem.png — logo STEM Instituto México
+
+Los espacios para captación publicitaria NO requieren imágenes ni GIF: están hechos con CSS.
+Correo de anuncios: contacto@entrenosotros.org (activar este buzón antes de publicar).
