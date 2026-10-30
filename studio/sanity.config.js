@@ -7,7 +7,7 @@ import { articleSchema } from './schemas/article.js'
 export default defineConfig({
   name: 'entre-nosotros',
   title: 'Entre Nosotros · Redacción',
-  projectId: process.env.SANITY_STUDIO_PROJECT_ID,
+  projectId: 'xx9o0ksu',
   dataset: process.env.SANITY_STUDIO_DATASET || 'production',
   plugins: [structureTool()],
   schema: { types: [articleSchema] },
