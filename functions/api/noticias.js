@@ -14,6 +14,7 @@ const QUERY = `*[
   author,
   eventDate,
   publishedAt,
+  youtubeUrl,
   featured,
   categories,
   "blocks": body[_type == "block"]{children[]{text}},
@@ -58,3 +59,4 @@ export async function onRequestGet() {
     )
   }
 }
+
