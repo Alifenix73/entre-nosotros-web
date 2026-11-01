@@ -9,3 +9,5 @@ Medio digital de información dedicado a la actualidad de Tamaulipas, México y 
 **Contacto:** contacto@entrenosotros.org
 
 © 2026 María de los Ángeles Barrios Gudiño. Todos los derechos reservados.
+
+Repositorio del periódico digital y su administrador editorial.
