@@ -14,19 +14,26 @@ import PreviewArticle from './components/PreviewArticle.jsx'
 import ShareArticle from './components/ShareArticle.jsx'
 
 function useLocation() {
-  const [path, setPath] = useState(window.location.pathname.replace(/\/$/, '') || '/')
+  const [path, setPath] = useState(
+    window.location.pathname.replace(/\/$/, '') || '/'
+  )
 
   useEffect(() => {
-    const sync = () => setPath(window.location.pathname.replace(/\/$/, '') || '/')
+    const sync = () => setPath(
+      window.location.pathname.replace(/\/$/, '') || '/'
+    )
+
     window.addEventListener('popstate', sync)
     return () => window.removeEventListener('popstate', sync)
   }, [])
 
   const navigate = (to) => {
     const target = to.replace(/\/$/, '') || '/'
+
     if (window.location.pathname !== target) {
       window.history.pushState(null, '', target)
     }
+
     setPath(target)
     window.scrollTo({ top: 0, behavior: 'instant' })
   }
@@ -122,6 +129,7 @@ function Article({ article, navigate }) {
             src={article.image}
             alt={article.imageAlt || ''}
           />
+
           {article.imageCaption && (
             <figcaption>{article.imageCaption}</figcaption>
           )}
@@ -150,14 +158,17 @@ function SearchPanel({ articles, navigate, onClose }) {
       .toLowerCase()
 
   const matches = articles.filter(a =>
-    normalize(`${a.title} ${a.summary || ''} ${a.categories.join(' ')}`)
-      .includes(normalize(term.trim()))
+    normalize(
+      `${a.title} ${a.summary || ''} ${a.categories.join(' ')}`
+    ).includes(normalize(term.trim()))
   )
 
   return (
     <section className="search-panel" aria-label="Buscar noticias">
       <div className="search-inner">
-        <label htmlFor="buscar-noticias">Buscar noticias publicadas</label>
+        <label htmlFor="buscar-noticias">
+          Buscar noticias publicadas
+        </label>
 
         <div className="search-controls">
           <input
@@ -168,6 +179,7 @@ function SearchPanel({ articles, navigate, onClose }) {
             onChange={e => setTerm(e.target.value)}
             placeholder="Escribe una palabra, tema o sección"
           />
+
           <button type="button" onClick={onClose}>
             Cerrar
           </button>
@@ -203,7 +215,9 @@ export default function App() {
 
     loadPublishedArticles()
       .then(data => {
-        if (mounted && data) setArticles(data)
+        if (mounted && data) {
+          setArticles(data)
+        }
       })
       .catch(() => {
         if (mounted && import.meta.env.DEV) {
@@ -269,7 +283,9 @@ export default function App() {
     ? 'Noticia'
     : article?.title ||
       section ||
-      (path === '/' ? site.name : navItems.find(item => item.href === path)?.label) ||
+      (path === '/'
+        ? site.name
+        : navItems.find(item => item.href === path)?.label) ||
       'Página no encontrada'
 
   useEffect(() => {
@@ -292,10 +308,35 @@ export default function App() {
       : 'index,follow'
   }, [isPreview])
 
+  // Registrar una visualizacion al abrir una noticia.
+  // No se registran visitas a la portada, listados ni vistas previas.
+  useEffect(() => {
+    if (!article?.slug || isPreview) return
+
+    fetch('/api/registrar-vista', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        slug: article.slug
+      }),
+      keepalive: true,
+      cache: 'no-store'
+    }).catch(error => {
+      console.error('No se pudo registrar la visualizacion:', error)
+    })
+  }, [path, article?.slug, isPreview])
+
   let body
 
   if (path === '/') {
-    body = <Home articles={published} navigate={navigate} />
+    body = (
+      <Home
+        articles={published}
+        navigate={navigate}
+      />
+    )
   } else if (isPreview) {
     body = (
       <PreviewArticle
@@ -305,9 +346,19 @@ export default function App() {
       />
     )
   } else if (article) {
-    body = <Article article={article} navigate={navigate} />
+    body = (
+      <Article
+        article={article}
+        navigate={navigate}
+      />
+    )
   } else if (isArchive) {
-    body = <Archive articles={published} navigate={navigate} />
+    body = (
+      <Archive
+        articles={published}
+        navigate={navigate}
+      />
+    )
   } else if (section || path === '/destacadas') {
     const label = section || 'Destacadas'
 
@@ -326,7 +377,12 @@ export default function App() {
     body = (
       <div className="listing-page">
         <h1>Página no encontrada</h1>
-        <SiteLink className="back" href="/" onNavigate={navigate}>
+
+        <SiteLink
+          className="back"
+          href="/"
+          onNavigate={navigate}
+        >
           Volver a portada
         </SiteLink>
       </div>
@@ -363,6 +419,3 @@ export default function App() {
     </>
   )
 }
-
-
-  
