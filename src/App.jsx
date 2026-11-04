@@ -39,8 +39,6 @@ function Home({ articles, navigate }) {
 
   return (
     <>
-      <ShareArticle home />
-
       <section className="news-section" aria-label="Noticias destacadas">
         <div className="section-title">
           <h2>Destacadas</h2>
@@ -52,6 +50,7 @@ function Home({ articles, navigate }) {
             Ver todas <span aria-hidden="true">→</span>
           </SiteLink>
         </div>
+
         <NewsGrid
           articles={featured}
           navigate={navigate}
@@ -59,6 +58,8 @@ function Home({ articles, navigate }) {
           minSlots={4}
         />
       </section>
+
+      <ShareArticle home />
 
       <Sponsors />
     </>
@@ -363,3 +364,5 @@ export default function App() {
   )
 }
 
+
+  
